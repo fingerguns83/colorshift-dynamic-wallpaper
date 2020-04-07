@@ -10,23 +10,33 @@ sleep 1
 echo
 echo "**Press control+c at any time to exit**"
 sleep 2
-echo
-echo
 
+cd "$(dirname "$0")"
 
-echo "Enter input file name (including extension)"
-read -p "=> " base
-echo
-echo
-echo "*Confirm that \"${base}\" is located in '$(pwd)' before continuing"
-sleep 4
-echo
-echo "(Press 'Enter' to continue)"
-read -p "" null
-echo
+base=$(ls | sed 's/.*.sh//g')
+base=$(echo "${base//[$'\n']}")
+baseValid=""
+
+while [[ "$baseValid" != "y" ]]
+do
+  echo
+  echo
+  echo "${base} has been detected as the target image, is this correct? (y/n)"
+  echo
+  read -p "=> " baseValid
+
+  if [[ "$baseValid" == "n" ]]
+  then
+    exit
+  fi
+done
+
 type="${base##*.}"
 
-echo "How many images would you like? (Higher is smoother, but 150-200 is recommended)"
+echo
+echo "How many images would you like?"
+echo "(Higher is smoother, but 150-200 is recommended)"
+echo
 read -p "=> " count
 if [[ "$count" == "" ]]
 then
@@ -73,6 +83,27 @@ echo
 echo
 echo "Complete!"
 sleep 1
+
+
+remove=""
+while [[ "$remove" != "n" ]]
+do
+  echo
+  echo
+  echo "Remove original image? (y/n)"
+  echo
+  read -p "=> " remove
+
+  if [[ "$remove" == "y" ]]
+  then
+    rm $base
+    echo
+    echo "Press 'Enter' to quit"
+    read -p "" quit
+    exit
+  fi
+done
+
 echo
 echo "Press 'Enter' to quit"
 read -p "" quit
