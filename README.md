@@ -1,6 +1,9 @@
 # colorshift-dynamic-wallpaper
 Generate image series for desktop wallpaper by moving around the color wheel
 
+## Dependancies
+Imagemagick - Best acquired via [Homebrew](https://brew.sh)
+
 ## Instructions:
 1) Place script in the destination folder where you want the images.
 2) Place your original image in the same folder.
