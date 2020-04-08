@@ -1,7 +1,7 @@
 # colorshift-dynamic-wallpaper
 Generate image series for desktop wallpaper by shifting through the color wheel
 
-!(ColorShift demo)[https://media.giphy.com/media/YrZLF6BG6xe5tq4gFI/giphy.gif]
+![ColorShift demo](https://media.giphy.com/media/YrZLF6BG6xe5tq4gFI/giphy.gif)
 
 ## Dependancies
 Imagemagick - Best acquired via [Homebrew](https://brew.sh)
