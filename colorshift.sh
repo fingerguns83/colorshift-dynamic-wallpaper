@@ -8,8 +8,7 @@ echo 'https://github.com/fingerguns83                            |'
 echo '___________________________________________________________|'
 sleep 1
 echo
-echo "**Press control+c at any time to exit**"
-sleep 2
+sleep 1
 
 cd "$(dirname "$0")"
 
@@ -27,7 +26,8 @@ do
 
   if [[ "$baseValid" == "n" ]]
   then
-    exit
+    echo "Please enter the target image filename (inc. extension)"
+    read -p "=> " base
   fi
 done
 
